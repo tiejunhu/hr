@@ -1,0 +1,45 @@
+<h2>Depts</h2>
+<p>
+	| <%= link_to 'New Dept', "#", :id => "new_dept_link" %> 
+	| <%= link_to 'Edit Dept', "#", :id => "edit_dept_link" %> 
+	| <%= link_to 'Del Dept', "#", :id => "delete_dept_link", :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+</p>
+<div id="tree"></div>
+
+<% content_for :js_header do %>
+	<%= javascript_include_tag depts_path %>
+	<%= stylesheet_link_tag "/dynatree-skin/ui.dynatree.css" %>
+<% end %>
+
+<div id="new_dept_dialog">
+	<br>
+	<%= form_for(:dept, :remote => true) do |f| %>
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name %><br>
+			<br>
+			Parent Dept: 
+			<%= f.select :parent_id, [["All Depts", -1]] + Dept.all.collect { |d| [d.name, d.id] }, {}, { :id => 'parent_id_new' } %><br>
+			<br>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	<% end %>
+</div>
+<div id="edit_dept_dialog">
+	<br>
+	<%= form_for(:dept, :remote => true, :method => 'put', :html => { :class => 'edit_dept', :id => 'edit_dept' } ) do |f| %>
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name, :id => 'name_edit' %><br>
+			<br>
+			Parent Dept: 
+			<%= f.select :parent_id, [["All Depts", -1]] + Dept.all.collect { |d| [d.name, d.id] }, {}, { :id => 'parent_id_edit' } %><br>
+			<br>
+		</div>
+		<div class="actions">
+			<%= f.submit "Update" %>
+		</div>
+	<% end %>
+</div>

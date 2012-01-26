@@ -1,0 +1,13 @@
+$(document).ready(function() {
+    $('#table').dataTable({
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "<%= humen_path %>.json"
+    });
+});
+
+function onNodeActivate(node) {
+	table = $("#table").dataTable();
+	table.fnSettings().sAjaxSource = "<%= humen_path %>.json?dept_id=" + node.data.key;
+	$("#table").dataTable().fnDraw();
+};

@@ -1,0 +1,17 @@
+#depts {
+    position:relative;
+    float:left;
+    width:300px;
+/*    border: 1px solid red;*/
+}
+#humen {
+    position:relative;
+    float:left;
+    width:800px;
+    height:auto;
+/*    border: 1px solid blue;*/
+    border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: #999999;
+	padding-left: 10px;
+}

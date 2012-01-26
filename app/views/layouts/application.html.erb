@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HR</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "jquery-ui-1.8.17.custom" %>
+
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-ui-1.8.17.custom.min" %>
+  <%= javascript_include_tag "jquery.dynatree.min" %>
+  <%= javascript_include_tag "jquery.dataTables.min" %>
+  <%= javascript_include_tag "jquery.cookie" %>
+
+  <%= yield(:js_header) %>
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
