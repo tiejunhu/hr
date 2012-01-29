@@ -1,5 +1,3 @@
-require 'jstreenode'
-
 class DeptsController < ApplicationController
   # GET /depts
   # GET /depts.json
@@ -12,36 +10,52 @@ class DeptsController < ApplicationController
     end
   end
 
+  # GET /depts/1
+  def show
+    @dept = Dept.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
+
+  # GET /depts/new
+  def new
+    @dept = Dept.new
+    @dept.parent_id = params[:parent_id]
+
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
+  # GET /depts/1/edit
+  def edit
+    @dept = Dept.find(params[:id])
+  end
+
   # POST /depts
-  # POST /depts.json
   def create
     @dept = Dept.new(params[:dept])
     
     respond_to do |format|
       if @dept.save
-        format.html { redirect_to :action => "index" }
-        format.json { render json: @dept, status: :created, location: @dept }
-        format.js { }
+        format.html { redirect_to @dept }
       else
         format.html { render action: "new" }
-        format.json { render json: @dept.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /depts/1
-  # PUT /depts/1.json
   def update
     @dept = Dept.find(params[:id])
 
     respond_to do |format|
       if @dept.update_attributes(params[:dept])
-        format.html { redirect_to :action => "index" }
-        format.json { head :ok }
-        format.js { }
+        format.html { redirect_to @dept }
       else
         format.html { render action: "edit" }
-        format.json { render json: @dept.errors, status: :unprocessable_entity }
       end
     end
   end

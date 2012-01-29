@@ -1,13 +1,32 @@
 $(document).ready(function() {
-    $('#table').dataTable({
+    var table = $('#table').dataTable({
         "bProcessing": true,
         "bServerSide": true,
-        "sAjaxSource": "<%= humen_path %>.json"
+		// "bJQueryUI": true,
+        "sAjaxSource": "<%= humen_path %>.json",
     });
+
+    $('#new_human_link').click(function() {
+		var node = getTree().getActiveNode();
+		var key = -1;
+		if (node) {
+			key = node.data.key;
+		}
+		openDialog("<%= new_human_path %>?dept_id=" + key, 380, 280, "New Human");
+    });
+
+	$("#table tbody").click(function(event) {
+		$(table.fnSettings().aoData).each(function (){
+			$(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+		var selectedId = event.target.parentNode.firstChild.innerHTML;
+		$("#delete_human_link").attr("href", "<%= humen_path %>/" + selectedId);
+	});
 });
 
-function onNodeActivate(node) {
-	table = $("#table").dataTable();
+function onTreeNodeActivate(node) {
+	var table = getTable();
 	table.fnSettings().sAjaxSource = "<%= humen_path %>.json?dept_id=" + node.data.key;
-	$("#table").dataTable().fnDraw();
+	table.fnDraw();
 };

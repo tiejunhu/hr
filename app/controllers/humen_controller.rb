@@ -1,5 +1,3 @@
-require 'jquery_datatable_data'
-
 class HumenController < ApplicationController
   # GET /humen
   # GET /humen.json
@@ -9,14 +7,14 @@ class HumenController < ApplicationController
       @humen = Human.all
     else
       dept = Dept.find(dept_id)
-      sub_depts = dept.leaves
+      sub_depts = dept.leaves << dept
       @humen = Human.where(:dept_id => sub_depts.collect{ |d| d.id } )
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: convert_to_table_json(@humen) }
-      format.js { }
+      format.js # index.js.erb
     end
   end
   
@@ -27,7 +25,9 @@ class HumenController < ApplicationController
     data.iTotalDisplayRecords = humen.size
     humen.each do |h|
       line = []
+      line << h.id
       line << h.name
+      line << ((h.dept == nil) ? "" : h.dept.name)
       line << h.board_date
       data.aaData << line
     end
@@ -49,10 +49,10 @@ class HumenController < ApplicationController
   # GET /humen/new.json
   def new
     @human = Human.new
+    @human.dept_id = params[:dept_id]
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @human }
     end
   end
 
@@ -69,10 +69,8 @@ class HumenController < ApplicationController
     respond_to do |format|
       if @human.save
         format.html { redirect_to @human, notice: 'Human was successfully created.' }
-        format.json { render json: @human, status: :created, location: @human }
       else
         format.html { render action: "new" }
-        format.json { render json: @human.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -102,6 +100,8 @@ class HumenController < ApplicationController
     respond_to do |format|
       format.html { redirect_to humen_url }
       format.json { head :ok }
+      format.js { }
     end
   end
+    
 end

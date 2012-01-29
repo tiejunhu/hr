@@ -8,8 +8,8 @@ $(function() {
 			$("#name_edit").val(node.data.title);
             $("#edit_dept").attr("action", "<%= depts_path %>/" + node.data.key);
 			$("#delete_dept_link").attr("href", "<%= depts_path %>/" + node.data.key);
-			if (onNodeActivate) {
-				onNodeActivate(node);
+			if (onTreeNodeActivate) {
+				onTreeNodeActivate(node);
 			}
         },
         onPostInit: function() {
@@ -26,34 +26,12 @@ $(function() {
 });
 
 $(document).ready(function() {
-    var $new_dept_dialog = $('#new_dept_dialog').dialog({
-        autoOpen: false,
-        title: 'New Dept',
-        modal: true,
-        draggable: false,
-		width: 380,
-		height: 200
-    });
-    var $edit_dept_dialog = $('#edit_dept_dialog').dialog({
-        autoOpen: false,
-        title: 'Edit Dept',
-        modal: true,
-        draggable: false,
-		width: 380,
-		height: 200
+    $('#new_dept_link').click(function() {
+		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 380, 200, "New Dept");
     });
 
-	var $tree = $("#tree").dynatree("getTree");
-	
-    $('#new_dept_link').click(function() {
-		if ($tree.getActiveNode()) {
-			$new_dept_dialog.dialog('open');
-		}
-    });
     $('#edit_dept_link').click(function() {
-		if ($tree.getActiveNode()) {
-			$edit_dept_dialog.dialog('open');
-		}
+		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 380, 200, "Edit Dept");
     });
 });
 

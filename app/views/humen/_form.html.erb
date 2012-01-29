@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :board_date %><br />
-    <%= f.date_select :board_date %>
-  </div>
+	<div class="field">
+	  <%= f.label :name %> <%= f.text_field :name %>
+		<br><br>
+	 	<%= f.label :board_date %> <%= f.date_select :board_date %>
+		<br><br>
+	 	<%= f.label :gender %> <%= f.select :gender, [["Male", "m"], ["Female", "f"]] %>
+		<br><br>
+	 	<%= f.label :marriage_state %> <%= f.select :marriage_state, [["Unknown", "unknown"], ["Married", "married"], ["Single", "single"], ["Divorced", "divorced"]] %>
+		<br><br>
+		<%= f.label :dept %> <%= f.select :dept_id, [["All Depts", -1]] + Dept.all.collect { |d| [d.name, d.id] } %>
+		<br><br>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
