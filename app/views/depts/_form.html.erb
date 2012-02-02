@@ -1,13 +1,16 @@
-<%= form_for(@dept) do |f| %>
-	<div class="field">
-		<%= f.label :name %>
-		<%= f.text_field :name %><br>
-		<br>
-		Parent Dept: 
-		<%= f.select :parent_id, [["All Depts", -1]] + Dept.all.collect { |d| [d.name, d.id] } %><br>
-		<br>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
+<%= form_for(@dept, :html => { :class => "form-horizontal", :id => "current_form" } ) do |f| %>
+	<fieldset>
+			<div class="control-group">
+				<%= f.label :name, :class => "control-label" %>
+				<div class="controls">
+					<%= f.text_field :name %>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Parent Dept</label>
+				<div class="controls">
+					<%= f.select :parent_id, all_depts %>
+				</div>
+			</div>
+	</fieldset>
 <% end %>

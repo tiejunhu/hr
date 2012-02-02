@@ -8,6 +8,7 @@ gem 'rails', '3.1.3'
 gem 'sqlite3'
 gem 'closure_tree'
 gem 'thin'
+gem 'authlogic'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,4 +35,8 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
+end
+
+group :development do
+  gem "rails-erd", :git => 'git://github.com/voormedia/rails-erd.git'
 end

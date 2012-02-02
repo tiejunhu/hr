@@ -7,5 +7,7 @@ class Dept < ActiveRecord::Base
   end  
   
   acts_as_tree
+
   has_many :humen
+  has_one :manager, :class_name => "Human", :foreign_key => "manager_id"
 end

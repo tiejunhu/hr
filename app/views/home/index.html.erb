@@ -1,11 +1,33 @@
-<div id='home_content'>
-<h1>Homebrew HR System</h1>
-	
-<div id="depts">
-	<%= render :template => "/depts/index" %>
-</div>
-<div id="humen">
-	<%= render :template => "/humen/index" %>
-</div>
+<div class="container">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="i-bar"></span>
+					<span class="i-bar"></span>
+					<span class="i-bar"></span>
+				</a>
+				<a class="brand" href="/">Homebrew HR</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/bands">Bands</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<p class="navbar-text pull-right">Logged in as <a href="#"><%= current_human_name %></a></p>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
 
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span4">
+				<%= render :template => "/depts/index" %>
+			</div>
+			<div class="span8">
+				<%= render :template => "/humen/index" %>
+			</div>
+		</div>
+	</div>
 </div>

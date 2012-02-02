@@ -1,5 +1,8 @@
 class HumenController < ApplicationController
+  before_filter :require_human
+  
   # GET /humen
+  # GET /humen.js
   # GET /humen.json
   def index
     dept_id = params[:dept_id]
@@ -24,36 +27,20 @@ class HumenController < ApplicationController
     data.iTotalRecords = humen.size
     data.iTotalDisplayRecords = humen.size
     humen.each do |h|
-      line = []
-      line << h.id
-      line << h.name
-      line << ((h.dept == nil) ? "" : h.dept.name)
-      line << h.board_date
-      data.aaData << line
+      data.aaData << [h.id, h.name, ((h.dept == nil) ? "" : h.dept.name), h.board_date]
     end
     data
   end
 
   # GET /humen/1
-  # GET /humen/1.json
   def show
-    @human = Human.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @human }
-    end
+    # @human = Human.find(params[:id])
   end
 
   # GET /humen/new
-  # GET /humen/new.json
   def new
     @human = Human.new
     @human.dept_id = params[:dept_id]
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   # GET /humen/1/edit
@@ -62,7 +49,6 @@ class HumenController < ApplicationController
   end
 
   # POST /humen
-  # POST /humen.json
   def create
     @human = Human.new(params[:human])
 
@@ -76,30 +62,25 @@ class HumenController < ApplicationController
   end
 
   # PUT /humen/1
-  # PUT /humen/1.json
   def update
     @human = Human.find(params[:id])
+    @human.updating_password = params[:human][:password].length > 0
 
     respond_to do |format|
       if @human.update_attributes(params[:human])
         format.html { redirect_to @human, notice: 'Human was successfully updated.' }
-        format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @human.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /humen/1
-  # DELETE /humen/1.json
+  # DELETE /humen/1.js
   def destroy
     @human = Human.find(params[:id])
     @human.destroy
 
     respond_to do |format|
-      format.html { redirect_to humen_url }
-      format.json { head :ok }
       format.js { }
     end
   end

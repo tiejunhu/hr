@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127080455) do
+ActiveRecord::Schema.define(:version => 20120201093935) do
 
   create_table "dept_hierarchies", :id => false, :force => true do |t|
     t.integer "ancestor_id",   :null => false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120127080455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.integer  "manager_id"
   end
 
   create_table "humen", :force => true do |t|
@@ -44,6 +45,12 @@ ActiveRecord::Schema.define(:version => 20120127080455) do
     t.string   "other_skills"
     t.string   "marriage_state"
     t.string   "id_card_no"
+    t.string   "email"
+    t.string   "login"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "title_id"
   end
 
   create_table "interview_histories", :force => true do |t|
@@ -55,6 +62,15 @@ ActiveRecord::Schema.define(:version => 20120127080455) do
     t.integer  "human_id"
   end
 
+  create_table "levels", :force => true do |t|
+    t.string   "level"
+    t.string   "band"
+    t.integer  "salary_from"
+    t.integer  "salary_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "salary_histories", :force => true do |t|
     t.integer  "monthly_pay"
     t.float    "base_rate"
@@ -62,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20120127080455) do
     t.integer  "eval_interval"
     t.date     "effective_date"
     t.integer  "human_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "titles", :force => true do |t|
+    t.string   "title"
+    t.string   "band"
+    t.text     "job_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

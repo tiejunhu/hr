@@ -1,0 +1,21 @@
+$(document).ready(function() {
+    $('#title_table').dataTable();
+
+    $('#new_level_link').click(function() {
+		openDialog("<%= new_level_path %>", 340, 200, "New Level");
+		return false;
+    });
+
+    $('#new_title_link').click(function() {
+		openDialog("<%= new_title_path %>", 400, 450, "New Title");
+		return false;
+    });
+
+    $('.edit_level_link').click(function(event) {
+		openDialog(event.target.href, 340, 200, "Edit Level");
+		return false;
+    });
+
+    $('#new_title_link').click(function() {
+    });
+});

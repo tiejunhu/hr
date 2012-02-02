@@ -1,27 +1,32 @@
 $(document).ready(function() {
-    var table = $('#table').dataTable({
+    globalTable = $('#table').dataTable({
         "bProcessing": true,
         "bServerSide": true,
-		// "bJQueryUI": true,
         "sAjaxSource": "<%= humen_path %>.json",
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort": false,
+        "bInfo": false,
+        "bAutoWidth": false
     });
 
     $('#new_human_link').click(function() {
-		var node = getTree().getActiveNode();
-		var key = -1;
-		if (node) {
-			key = node.data.key;
-		}
-		openDialog("<%= new_human_path %>?dept_id=" + key, 380, 280, "New Human");
+		openDialog("<%= new_human_path %>?dept_id=" + getTreeSelectionKey(), 380, 470, "New Human");
+    });
+
+    $('#edit_human_link').click(function() {
+		openDialog("<%= humen_path %>/" + getTableSelectionKey() + "/edit", 380, 470, "Edit Human");
     });
 
 	$("#table tbody").click(function(event) {
-		$(table.fnSettings().aoData).each(function (){
+		$(globalTable.fnSettings().aoData).each(function (){
 			$(this.nTr).removeClass('row_selected');
 		});
 		$(event.target.parentNode).addClass('row_selected');
-		var selectedId = event.target.parentNode.firstChild.innerHTML;
-		$("#delete_human_link").attr("href", "<%= humen_path %>/" + selectedId);
+		
+		// update delete link
+		$("#delete_human_link").attr("href", "<%= humen_path %>/" + getTableSelectionKey());
 	});
 });
 

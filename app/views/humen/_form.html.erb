@@ -11,18 +11,66 @@
     </div>
   <% end %>
 
-	<div class="field">
-	  <%= f.label :name %> <%= f.text_field :name %>
-		<br><br>
-	 	<%= f.label :board_date %> <%= f.date_select :board_date %>
-		<br><br>
-	 	<%= f.label :gender %> <%= f.select :gender, [["Male", "m"], ["Female", "f"]] %>
-		<br><br>
-	 	<%= f.label :marriage_state %> <%= f.select :marriage_state, [["Unknown", "unknown"], ["Married", "married"], ["Single", "single"], ["Divorced", "divorced"]] %>
-		<br><br>
-		<%= f.label :dept %> <%= f.select :dept_id, [["All Depts", -1]] + Dept.all.collect { |d| [d.name, d.id] } %>
-		<br><br>
-	</div>
+  <div class="field">
+    <table style="border:0;">
+      <tr>
+        <td><%= f.label :name %></td>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :login %></td>
+        <td><%= f.text_field :login %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password %></td>
+        <td><%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :board_date %></td>
+        <td><%= f.date_select :board_date %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :gender %></td>
+        <td><%= f.select :gender, genders %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :marriage_state %></td>
+        <td><%= f.select :marriage_state, marriage_status %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :dept %></td> 
+        <td><%= f.select :dept_id, all_depts %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :birthday %></td>
+        <td><%= f.date_select :birthday %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :hometown %></td>
+        <td><%= f.text_field :hometown %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :mobile %></td>
+        <td><%= f.text_field :mobile %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :home_address %></td>
+        <td><%= f.text_field :home_address %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :major_skill %></td>
+        <td><%= f.text_field :major_skill %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :other_skills %></td>
+        <td><%= f.text_field :other_skills %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :id_card_no %></td>
+        <td><%= f.text_field :id_card_no %></td>
+      </tr>
+    </table>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

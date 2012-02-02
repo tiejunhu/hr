@@ -1,0 +1,32 @@
+<%= form_for(@title) do |f| %>
+  <% if @title.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@title.errors.count, "error") %> prohibited this title from being saved:</h2>
+
+      <ul>
+      <% @title.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <table style="border:0;">
+      <tr>
+        <td><%= f.label :title %></td>
+        <td><%= f.text_field :title %></td>
+			</tr>
+      <tr>
+        <td><%= f.label :band %></td>
+        <td><%= f.select :band, all_bands %></td>
+			</tr>
+      <tr>
+        <td><%= f.label :job_desc %></td>
+        <td><%= f.text_area :job_desc %></td>
+			</tr>
+		</table>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

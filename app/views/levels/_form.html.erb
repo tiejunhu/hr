@@ -1,0 +1,36 @@
+<%= form_for(@level) do |f| %>
+  <% if @level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@level.errors.count, "error") %> prohibited this level from being saved:</h2>
+
+      <ul>
+      <% @level.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <table style="border:0;">
+      <tr>
+        <td><%= f.label :level %></td>
+        <td><%= f.text_field :level %></td>
+			</tr>
+      <tr>
+        <td><%= f.label :band %></td>
+        <td><%= f.text_field :band %></td>
+			</tr>
+      <tr>
+        <td><%= f.label :salary_from %></td>
+        <td><%= f.text_field :salary_from %></td>
+			</tr>
+      <tr>
+        <td><%= f.label :salary_to %></td>
+        <td><%= f.text_field :salary_to %></td>
+			</tr>
+		</table>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

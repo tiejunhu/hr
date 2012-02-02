@@ -3,12 +3,8 @@ $(function() {
     // and pass the tree options as an argument to the dynatree() function:
     $("#tree").dynatree({
         onActivate: function(node) {
-			$("#parent_id_new").val(node.data.key);
-			$("#parent_id_edit").val(node.getParent().data.key);
-			$("#name_edit").val(node.data.title);
-            $("#edit_dept").attr("action", "<%= depts_path %>/" + node.data.key);
 			$("#delete_dept_link").attr("href", "<%= depts_path %>/" + node.data.key);
-			if (onTreeNodeActivate) {
+			if (typeof onTreeNodeActivate == "function") {
 				onTreeNodeActivate(node);
 			}
         },
@@ -27,11 +23,11 @@ $(function() {
 
 $(document).ready(function() {
     $('#new_dept_link').click(function() {
-		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 380, 200, "New Dept");
+		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 380, 150, "New Dept");
     });
 
     $('#edit_dept_link').click(function() {
-		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 380, 200, "Edit Dept");
+		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 380, 150, "Edit Dept");
     });
 });
 

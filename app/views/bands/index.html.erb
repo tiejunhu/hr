@@ -1,0 +1,41 @@
+<div id='content'>
+	<h2>Band/Level/Title</h2>
+	| <a href="#" id="new_level_link">New Level</a> | <a href="#" id="new_title_link">New Title</a> |
+	<p/>
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="title_table">
+		<thead>
+		<tr>
+			<th>Band</th>
+			<th>Level</th>
+			<th>Title</th>
+		</tr>
+		</thead>
+		<tbody>
+		<% @bands.keys.each do |key| %>
+		<tr>
+			<td><%= key %></td>
+			<td>
+				<% @bands[key][:l].each do |level| %>
+					<%= level.level %> (<%= level.salary_from %>-<%= level.salary_to %>) 
+					<a href="<%= levels_path %>/<%= level.id %>/edit" class="edit_level_link">edit</a>
+					<%= link_to 'del', "#{levels_path}/#{level.id}", :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+					<br/>
+				<% end %>
+			</td>
+			<td>
+				<% @bands[key][:t].each do |title| %>
+					<%= title.title %>
+					<a href="<%= titles_path %>/<%= title.id %>/edit">edit</a>
+					<%= link_to 'del', "#{titles_path}/#{title.id}", :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+					<br/>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>		
+		</tbody>
+	</table>
+</div>
+
+<% content_for :js_header do %>
+	<%= javascript_include_tag bands_path %>
+<% end %>
