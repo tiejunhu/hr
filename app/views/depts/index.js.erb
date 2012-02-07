@@ -1,6 +1,4 @@
 $(function() {
-    // Attach the dynatree widget to an existing <div id="tree"> element
-    // and pass the tree options as an argument to the dynatree() function:
     $("#tree").dynatree({
         onActivate: function(node) {
 			$("#delete_dept_link").attr("href", "<%= depts_path %>/" + node.data.key);
@@ -23,11 +21,11 @@ $(function() {
 
 $(document).ready(function() {
     $('#new_dept_link').click(function() {
-		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 380, 150, "New Dept");
+		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 450, "New Dept");
     });
 
     $('#edit_dept_link').click(function() {
-		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 380, 150, "Edit Dept");
+		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 450, "Edit Dept");
     });
 });
 

@@ -12,11 +12,11 @@ $(document).ready(function() {
     });
 
     $('#new_human_link').click(function() {
-		openDialog("<%= new_human_path %>?dept_id=" + getTreeSelectionKey(), 380, 470, "New Human");
+		openDialog("<%= new_human_path %>?dept_id=" + getTreeSelectionKey(), 900, "New Human");
     });
 
     $('#edit_human_link').click(function() {
-		openDialog("<%= humen_path %>/" + getTableSelectionKey() + "/edit", 380, 470, "Edit Human");
+		openDialog("<%= humen_path %>/" + getTableSelectionKey() + "/edit", 900, "Edit Human");
     });
 
 	$("#table tbody").click(function(event) {

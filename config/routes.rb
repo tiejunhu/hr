@@ -3,6 +3,7 @@ Hr::Application.routes.draw do
   resources :humen
   resources :levels
   resources :titles
+  resources :reviews
 
   root :to => 'home#index'
   match '/logout' => 'home#logout'

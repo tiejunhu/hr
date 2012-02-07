@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201093935) do
+ActiveRecord::Schema.define(:version => 20120204110825) do
 
   create_table "dept_hierarchies", :id => false, :force => true do |t|
     t.integer "ancestor_id",   :null => false
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(:version => 20120201093935) do
     t.string   "band"
     t.integer  "salary_from"
     t.integer  "salary_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

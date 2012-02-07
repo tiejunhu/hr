@@ -14,6 +14,7 @@ var globalTable;
 
 $(document).ready(function() {
 	resizeIFrame();
+	activeNavItem();
 	
 	top.$('#save_changes_btn').click(function() {
 		if (typeof onSaveChanges == "function") {
@@ -25,8 +26,23 @@ $(document).ready(function() {
 	});
 })
 
-function resizeIFrame()
-{
+function activeNavItem() {
+	var items = $(".nav-item");
+	var path = window.location.pathname.toLowerCase();
+	if (path == "/") {
+		$(".nav-home-item").addClass("active");
+		return;
+	}
+	for (i = 0; i < items.length; i++) {
+		item = items[i];
+		if (path.indexOf("/" + item.textContent.toLowerCase()) >= 0) {
+			$(item).addClass("active");
+			return;
+		}
+	}
+}
+
+function resizeIFrame() {
 	o = top.document.getElementsByTagName('iframe');
 	for(i=0;i<o.length;i++){
 		if (/\bautoHeight\b/.test(o[i].className)){
@@ -40,8 +56,7 @@ function resizeIFrame()
 	}
 }
 
-function openDialog(url, width, height, title)
-{
+function openDialog(url, width, title) {
 	globalDialog = $(' \
 		<div class="modal"> \
 			<div class="modal-header"> \
@@ -49,63 +64,34 @@ function openDialog(url, width, height, title)
 		    	<h4>' + title + '</h4> \
 		  	</div> \
 			<div class="modal-body"> \
-				<iframe src="' + url + '" class="autoHeight" frameBorder="0" scrolling="no" style="width:100%;"/> \
+				<iframe src="' + url + '" id="dialog-frame" class="autoHeight" frameBorder="0" scrolling="no" style="width:100%;"/> \
 			</div> \
 			<div class="modal-footer"> \
 				<a href="#" class="btn btn-primary" id="save_changes_btn">Save changes</a> \
 	            <a href="#" class="btn" data-dismiss="modal">Close</a> \
             </div> \
 		</div> \
-		').modal();
+		').modal().css({ width: width, 'margin-left': function () { return -($(this).width() / 2); } });
 	
-	globalDialog.on('hidden', function()
-	{
+	globalDialog.on('hidden', function() {
 		globalDialog.remove();
-	});
-	
-	// width = parseInt(width) + 60;
-	// var horizontalPadding = 30;
-	// var verticalPadding = 30;
-	// globalDialog = $('<div id="modal_dialog"><iframe src="' + url + '" frameBorder="0" scrolling="no" style="width:100%; height:100%;"/></div>').dialog({
-	// 	title: (title) ? title : 'Dialog',
-	// 	autoOpen: true,
-	// 	width: width,
-	// 	height: height,
-	// 	modal: true,
-	// 	resizable: true,
-	// 	autoResize: false,
-	// 	closeOnEscape: true,
-	// 	overlay: {
-	// 		opacity: 0.5,
-	// 		background: "black"
-	// 	},
-	// 	close: function(event, ui)
-	//         {
-	//             $(this).dialog('destroy').remove();
-	//         }
-	// }).width(width - horizontalPadding).height(height - verticalPadding);
-	// $('html, body').scrollTop(0);
+	});	
 }
 
-function closeDialog()
-{
-	// globalDialog.dialog('destroy').remove();
+function closeDialog() {
 	globalDialog.modal('hide');
 }
 
-function getTree()
-{
+function getTree() {
 	return $("#tree").dynatree("getTree");
 }
 
-function getTable()
-{
+function getTable() {
 	// return $("#table").dataTable();
 	return globalTable;
 }
 
-function getTreeSelectionKey()
-{
+function getTreeSelectionKey() {
 	var node = getTree().getActiveNode();
 	var key = -1;
 	if (node) {
@@ -114,8 +100,7 @@ function getTreeSelectionKey()
 	return key;
 }
 
-function getTableSelectionKey()
-{
+function getTableSelectionKey() {
     var aTrs = getTable().fnGetNodes();
      
     for ( var i=0 ; i<aTrs.length ; i++ ) {

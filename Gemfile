@@ -8,7 +8,7 @@ gem 'rails', '3.1.3'
 gem 'sqlite3'
 gem 'closure_tree'
 gem 'thin'
-gem 'authlogic'
+gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
