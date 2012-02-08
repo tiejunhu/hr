@@ -5,6 +5,10 @@ class TitlesController < ApplicationController
     # @title = Title.find(params[:id])
   end
 
+  # GET /titles/close
+  def close
+  end
+
   # GET /titles/new
   # GET /titles/new.json
   def new
@@ -27,7 +31,7 @@ class TitlesController < ApplicationController
 
     respond_to do |format|
       if @title.save
-        format.html { redirect_to @title, notice: 'Title was successfully created.' }
+        format.html { render action: "close" }
       else
         format.html { render action: "new" }
       end
@@ -40,7 +44,7 @@ class TitlesController < ApplicationController
 
     respond_to do |format|
       if @title.update_attributes(params[:title])
-        format.html { redirect_to @title, notice: 'Title was successfully updated.' }
+        format.html { render action: "close" }
       else
         format.html { render action: "edit" }
       end

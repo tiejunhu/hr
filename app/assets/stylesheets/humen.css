@@ -1,0 +1,17 @@
+.table .sorting_asc 
+{
+	margin: 0px;
+	padding-right: 10px;
+	background-image:url(images/up.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+
+.table .sorting_desc 
+{
+	margin: 0px;
+	padding-right: 10px;
+	background-image:url(images/down.png);
+	background-repeat:no-repeat;
+	background-position:right center;
+}

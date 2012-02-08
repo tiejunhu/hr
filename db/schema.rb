@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204110825) do
+ActiveRecord::Schema.define(:version => 20120208095247) do
 
   create_table "dept_hierarchies", :id => false, :force => true do |t|
     t.integer "ancestor_id",   :null => false
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(:version => 20120204110825) do
     t.integer  "manager_id"
   end
 
+  create_table "employment_histories", :force => true do |t|
+    t.integer  "human_id"
+    t.integer  "level_id"
+    t.integer  "title_id"
+    t.date     "start_from"
+    t.integer  "monthly_pay"
+    t.float    "base_rate",          :default => 0.8
+    t.integer  "pay_month_per_year", :default => 15
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "reason"
+    t.text     "comment"
+  end
+
   create_table "humen", :force => true do |t|
     t.string   "name"
     t.date     "board_date"
@@ -43,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20120204110825) do
     t.string   "home_address"
     t.string   "major_skill"
     t.string   "other_skills"
-    t.string   "marriage_state"
+    t.string   "marriage_state",    :default => "unknown"
     t.string   "id_card_no"
     t.string   "email"
     t.string   "login"
@@ -51,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120204110825) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.integer  "title_id"
+    t.string   "employment_state"
   end
 
   create_table "interview_histories", :force => true do |t|

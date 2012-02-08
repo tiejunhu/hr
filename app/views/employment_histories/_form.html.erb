@@ -1,0 +1,77 @@
+<%= form_for(@employment_history, :html => { :class => "form-horizontal", :id => "current_form" }) do |f| %>
+  <% if @employment_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employment_history.errors.count, "error") %> prohibited this employment_history from being saved:</h2>
+      <ul>
+      <% @employment_history.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<fieldset>
+		<div class="container-fluid" style="width:800px;">
+		  <div class="row-fluid">
+		    <div class="span6">
+					<%= f.hidden_field :human_id, { :value => @human.id } %>
+					<div class="control-group">
+						<%= f.label :human, :class => "control-label" %>
+						<div class="controls">
+							<input value="<%= @human.name %>" disabled="disabled">
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :level, :class => "control-label" %>
+						<div class="controls">
+			        <%= f.select :level_id, all_levels %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :title, :class => "control-label" %>
+						<div class="controls">
+			        <%= f.select :title_id, all_titles %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :start_from, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :start_from %>
+						</div>
+					</div>
+				</div>
+				<div class="span6">
+					<div class="control-group">
+						<%= f.label :monthly_pay, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :monthly_pay %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :base_rate, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :base_rate %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :pay_month_per_year, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :pay_month_per_year %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :reason, :class => "control-label" %>
+						<div class="controls">
+							<%= f.select :reason, Settings.employment_change_reasons %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :comment, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :comment %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+<% end %>

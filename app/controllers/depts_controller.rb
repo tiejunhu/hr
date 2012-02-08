@@ -5,7 +5,6 @@ class DeptsController < ApplicationController
   # GET /depts.js
   # GET /depts.json
   def index
-    @dept = Dept.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: convert_to_jstreenodes(Dept.roots, nil) }
@@ -13,9 +12,26 @@ class DeptsController < ApplicationController
     end
   end
 
+  def convert_to_jstreenodes(depts, parent)
+    parent = JsTreeNode.new if not parent
+    depts.each do |d|
+      node = JsTreeNode.new
+      node.title = d.name
+      node.key = d.id
+      convert_to_jstreenodes(d.children, node)
+      node.isFolder = (node.children.size > 0)
+      parent.children << node
+    end
+    parent
+  end
+
   # GET /depts/1
   def show
     # @dept = Dept.find(params[:id])
+  end
+
+  # GET /depts/close
+  def close
   end
 
   # GET /depts/new
@@ -35,7 +51,7 @@ class DeptsController < ApplicationController
     
     respond_to do |format|
       if @dept.save
-        format.html { redirect_to @dept }
+        format.html { render action: "close" }
       else
         format.html { render action: "new" }
       end
@@ -48,7 +64,7 @@ class DeptsController < ApplicationController
 
     respond_to do |format|
       if @dept.update_attributes(params[:dept])
-        format.html { redirect_to @dept }
+        format.html { render action: "close" }
       else
         format.html { render action: "edit" }
       end
@@ -64,18 +80,5 @@ class DeptsController < ApplicationController
       format.js 
     end
   end
-  
-  def convert_to_jstreenodes(depts, parent)
-    parent = JsTreeNode.new if not parent
-    depts.each do |d|
-      node = JsTreeNode.new
-      node.title = d.name
-      node.key = d.id
-      convert_to_jstreenodes(d.children, node)
-      node.isFolder = (node.children.size > 0)
-      parent.children << node
-    end
-    parent
-  end
-  
+    
 end

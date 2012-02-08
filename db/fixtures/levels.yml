@@ -1,0 +1,101 @@
+A1:
+    level: "A1"
+    band: "A"
+    salary_from: 2000
+    salary_to: 3000
+
+A2:
+    level: "A2"
+    band: "A"
+    salary_from: 3000
+    salary_to: 4000
+
+B1:
+    level: "B1"
+    band: "B"
+    salary_from: 3000 
+    salary_to: 4000
+
+B2:
+    level: "B2"
+    band: "B"
+    salary_from: 4000 
+    salary_to: 5000
+        
+C1:
+    level: "C1"
+    band: "C"
+    salary_from: 5000
+    salary_to: 6000
+    
+C2:
+    level: "C2"
+    band: "C"
+    salary_from: 6000 
+    salary_to: 7000
+    
+C3:
+    level: "C3"
+    band: "C"
+    salary_from: 7000 
+    salary_to: 8000
+    
+C4:
+    level: "C4"
+    band: "C"
+    salary_from: 8000 
+    salary_to: 9000
+    
+C5:
+    level: "C5"
+    band: "C"
+    salary_from: 9000 
+    salary_to: 10000
+    
+D1:
+    level: "D1"
+    band: "D"
+    salary_from: 8000 
+    salary_to: 10000
+    
+D2:
+    level: "D2"
+    band: "D"
+    salary_from: 10000 
+    salary_to: 12000
+    
+D3:
+    level: "D3"
+    band: "D"
+    salary_from: 12000 
+    salary_to: 14000
+    
+D4:
+    level: "D4"
+    band: "D"
+    salary_from: 14000 
+    salary_to: 15000
+    
+E1:
+    level: "E1"
+    band: "E"
+    salary_from: 12000 
+    salary_to: 14000
+    
+E2:
+    level: "E2"
+    band: "E"
+    salary_from: 14000 
+    salary_to: 16000
+    
+E3:
+    level: "E3"
+    band: "E"
+    salary_from: 16000 
+    salary_to: 18000
+    
+E4:
+    level: "E4"
+    band: "E"
+    salary_from: 18000 
+    salary_to: 20000

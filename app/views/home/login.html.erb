@@ -1,21 +1,26 @@
 <div id="login">
   <h2>Please Login</h2>
-  <form action="/login" method="post">
-    <table border="0">
-      <tr>
-        <td align="right">Login</td>
-        <td><input type="text" name="login" value=""/></td>
-      </tr>
-      <tr>
-        <td align="right">Password</td>
-        <td><input type="password" name="password" value=""/></td>
-      </tr>
-      <tr>
-        <td align="right">Remember me</td>
-        <td><input type="checkbox" name="remember" value="1" checked/></td>
-      </tr>
-    </table>
-		<br>
-    <input type="submit" value="Login"/>
+  <br/>
+  <form action="/login" method="post" class="form-horizontal">
+		<fieldset>
+			<div class="control-group">
+        <label class="control-label">Login</label>
+				<div class="controls">
+        <input type="text" name="login" value=""/>
+				</div>
+			</div>
+			<div class="control-group">
+        <label class="control-label">Password</label>
+				<div class="controls">
+        <input type="password" name="password" value=""/>
+				</div>
+			</div>
+			<div class="control-group">
+        <label class="control-label">Remember me</label>
+				<div class="controls">
+	        <input type="checkbox" name="remember" value="1" checked/>
+				</div>
+			</div>
+    	<input type="submit" value="Login" class="btn btn-primary"/>
   </form>
 </div>

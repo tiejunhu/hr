@@ -23,7 +23,7 @@
 					<% @bands[key][:l].each do |level| %>
 						<div class="row">
 							<%= link_to 'X', "#{levels_path}/#{level.id}", :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'btn btn-tiny' %>
-							<a href="<%= levels_path %>/<%= level.id %>/edit" class="edit_level_link btn-tiny btn"><%= level.level %> (<%= level.salary_from %>-<%= level.salary_to %>)</a>
+							<a href="<%= levels_path %>/<%= level.id %>/edit" class="edit_level_link btn-tiny"><%= level.level %> (<%= level.salary_from %>-<%= level.salary_to %>)</a>
 						</div>
 					<% end %>
 					</div>
@@ -33,7 +33,7 @@
 					<% @bands[key][:t].each do |title| %>
 						<div class="row">
 							<%= link_to 'X', "#{titles_path}/#{title.id}", :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => 'btn btn-tiny' %>
-							<a href="<%= titles_path %>/<%= title.id %>/edit" class="edit_title_link btn btn-tiny"><%= title.title %></a>
+							<a href="<%= titles_path %>/<%= title.id %>/edit" class="edit_title_link btn-tiny"><%= title.title %></a>
 						</div>
 					<% end %>
 				</div>
@@ -44,6 +44,6 @@
 	</table>
 </div>
 
-<% content_for :js_header do %>
+<% content_for :header do %>
 	<%= javascript_include_tag bands_path %>
 <% end %>

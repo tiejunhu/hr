@@ -1,0 +1,21 @@
+<h1>Listing employment_histories</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @employment_histories.each do |employment_history| %>
+  <tr>
+    <td><%= link_to 'Show', employment_history %></td>
+    <td><%= link_to 'Edit', edit_employment_history_path(employment_history) %></td>
+    <td><%= link_to 'Destroy', employment_history, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Employment history', new_employment_history_path %>

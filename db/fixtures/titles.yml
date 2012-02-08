@@ -1,0 +1,35 @@
+ta:
+    title: "见习工程师"
+    band: "A"
+
+tb:
+    title: "工程师"
+    band: "B"
+        
+tc1:
+    title: "中级工程师"
+    band: "C"
+        
+tc2:
+    title: "研发项目经理"
+    band: "C"
+        
+td1:
+    title: "高级工程师"
+    band: "D"
+        
+td2:
+    title: "测试经理"
+    band: "D"
+        
+td3:
+    title: "产品经理"
+    band: "D"
+        
+te1:
+    title: "资深工程师"
+    band: "E"
+        
+te2:
+    title: "高级产品经理"
+    band: "E"

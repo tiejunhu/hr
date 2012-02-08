@@ -5,6 +5,10 @@ class LevelsController < ApplicationController
     # @level = Level.find(params[:id])
   end
 
+  # GET /levels/close
+  def close
+  end
+
   # GET /levels/new
   def new
     @level = Level.new
@@ -21,7 +25,7 @@ class LevelsController < ApplicationController
 
     respond_to do |format|
       if @level.save
-        format.html { redirect_to @level, notice: 'Level was successfully created.' }
+        format.html { render action: "close" }
       else
         format.html { render action: "new" }
       end
@@ -29,17 +33,14 @@ class LevelsController < ApplicationController
   end
 
   # PUT /levels/1
-  # PUT /levels/1.json
   def update
     @level = Level.find(params[:id])
 
     respond_to do |format|
       if @level.update_attributes(params[:level])
-        format.html { redirect_to @level, notice: 'Level was successfully updated.' }
-        format.json { head :ok }
+        format.html { render action: "close" }
       else
         format.html { render action: "edit" }
-        format.json { render json: @level.errors, status: :unprocessable_entity }
       end
     end
   end

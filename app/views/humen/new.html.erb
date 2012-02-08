@@ -1,10 +1,10 @@
 <%= render 'form' %>
 
-<% content_for :js_header do %>
+<% content_for :header do %>
 <script language="JavaScript">
 	$(document).ready(function() {
-		$('#human_board_date').datepicker();
-		$('#human_birthday').datepicker();
+		$('#human_board_date').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#human_birthday').datepicker({dateFormat: 'yy-mm-dd'});
 	});
 </script>
 <% end %>

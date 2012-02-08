@@ -1,0 +1,65 @@
+$(document).ready(function() {
+	$("#current_form :input").attr("disabled", true);
+	
+	initEmploymentHistoriesTable();
+
+    $('#new_employment_history_link').click(function() {
+		openDialog("<%= new_employment_history_path %>?human_id=<%= @human_id %>", 900, "New Employment History");
+		return false;
+    });
+
+    $('#edit_employment_history_link').click(function() {
+		openDialog("<%= employment_histories_path %>/" + getEmploymentHistoriesTableSelectionKey() + "/edit", 900, "Edit Employment History");
+    });
+
+	$("#employment_histories_table tbody").click(function(event) {
+		$(getEmploymentHistoriesTable().fnSettings().aoData).each(function (){
+			$(this.nTr).removeClass('row_selected');
+		});
+		$(event.target.parentNode).addClass('row_selected');
+		
+		// update delete link
+		$("#delete_employment_history_link").attr("href", "<%= employment_histories_path %>/" + getEmploymentHistoriesTableSelectionKey());
+	});
+})
+
+function initEmploymentHistoriesTable()
+{
+	$('#employment_histories_table').dataTable({
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "<%= employment_histories_path %>.json?human_id=<%= @human_id %>",
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort": false,
+        "bInfo": true,
+        "bAutoWidth": false,
+		"sDom": '<"top"i>rt<"clear">',
+		"aoColumns": [
+		            { "mDataProp": "id" },
+		            { "mDataProp": "level" },
+		            { "mDataProp": "title" },
+		            { "mDataProp": "start_from" },
+		            { "mDataProp": "monthly_pay" },
+		            { "mDataProp": "base_rate" },
+		            { "mDataProp": "pay_month_per_year" },
+		            { "mDataProp": "reason" }
+		        ]
+    });
+}
+
+function getEmploymentHistoriesTable() {
+	return $("#employment_histories_table").dataTable();
+}
+
+function getEmploymentHistoriesTableSelectionKey() {
+    var aTrs = getEmploymentHistoriesTable().fnGetNodes();
+     
+    for ( var i=0 ; i<aTrs.length ; i++ ) {
+        if ( $(aTrs[i]).hasClass('row_selected') ) {
+			return aTrs[i].firstChild.innerHTML;
+        }
+    }
+    return -1;	
+}

@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+  before_filter :require_human
+
   def index
     respond_to do |format|
       format.html { calc_bands } # index.html.erb
@@ -12,7 +14,7 @@ class BandsController < ApplicationController
     bands = levels.collect {|t| t.band}.uniq.sort
     bands.each do |b|
       titles = Title.where(["band = ?", b])
-      levels = Level.where(["band = ?", b])
+      levels = Level.where(["band = ?", b]).order("level")
       @bands[b] = {:t => titles, :l => levels}
     end
   end

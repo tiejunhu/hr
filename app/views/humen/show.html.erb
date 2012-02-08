@@ -1,8 +1,25 @@
-<% content_for :js_header do %>
-	<script language="JavaScript">
-		$(document).ready(function() {
-			top.getTable().fnDraw();
-			top.closeDialog();
-		});
-	</script>
+<div class="container">
+	<%= render 'home/nav' %>
+	<%= render 'form' %>
+	
+	<div class="tabbable">
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a href="#1" data-toggle="tab">Employment History</a></li>
+	    <li><a href="#3" data-toggle="tab">Review History</a></li>
+	    <li><a href="#3" data-toggle="tab">Interview History</a></li>
+	  </ul>
+	  <div class="tab-content">
+	    <div class="tab-pane active" id="1">
+				<%= render 'employment_histories' %>
+	    </div>
+	    <div class="tab-pane" id="2">
+	      <p>Howdy, I'm in Section 2.</p>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<% content_for :header do %>
+	<%= stylesheet_link_tag human_path(@human) %>
+	<%= javascript_include_tag human_path(@human) %>
 <% end %>

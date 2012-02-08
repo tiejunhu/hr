@@ -6,9 +6,20 @@ $(document).ready(function() {
         "bPaginate": false,
         "bLengthChange": false,
         "bFilter": false,
-        "bSort": false,
-        "bInfo": false,
-        "bAutoWidth": false
+        "bSort": true,
+        "bInfo": true,
+        "bAutoWidth": false,
+		"sDom": '<"top"i>rt<"clear">',
+		"aoColumns": [
+		            { "mDataProp": "id" },
+		            { "mDataProp": "name", "bSortable": false },
+		            { "mDataProp": "login" },
+		            { "mDataProp": "gender" },
+		            { "mDataProp": "marriage_state" },
+		            { "mDataProp": "dept_name" },
+		            { "mDataProp": "board_date" },
+		            { "mDataProp": "employment_state" }
+		        ]
     });
 
     $('#new_human_link').click(function() {

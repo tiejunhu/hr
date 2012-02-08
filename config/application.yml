@@ -1,0 +1,33 @@
+defaults: &defaults
+    genders:
+        - m
+        - f
+    marriage_status:
+        - unknown
+        - married
+        - single 
+        - divorced
+    employment_status:
+        - 
+        - on leave
+        - fired
+        - left
+    employment_left_enum:
+        - fired
+        - left        
+    employment_change_reasons:
+        - hire as
+        - promotion
+        - demotion
+        - fired
+        - left
+        - rejoin      
+        
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

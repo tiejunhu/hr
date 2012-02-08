@@ -4,11 +4,15 @@ Hr::Application.routes.draw do
   resources :levels
   resources :titles
   resources :reviews
+  resources :employment_histories
+
+  # match all close actions
+  match ':controller/:action', :action => /close/
 
   root :to => 'home#index'
-  match '/logout' => 'home#logout'
-  match '/login' => 'home#login'
-  match '/bands' => 'bands#index'
+  match 'logout' => 'home#logout'
+  match 'login' => 'home#login'
+  match 'bands' => 'bands#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

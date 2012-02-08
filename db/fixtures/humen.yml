@@ -1,0 +1,329 @@
+admin:
+  id: 1
+  name: "Admin"
+  login: "admin"
+  crypted_password: "14b3c7d2b4974ef47bf5c02a8867466e1762b0f6aa5587e959f4e6953fcdd10d779eda8061fbfc8ec3076e94dbed8847dccbec2e04a3b791d9cc2153fd779656"
+  password_salt: "zWErojlJrMwDLUoeTdN"
+  gender: "m"
+  marriage_state: "unknown"
+  created_at: "2012-02-03 02:29:03"
+  updated_at: "2012-02-03 02:29:03"
+  
+liuxiaobing:
+    id: 2
+    name: "刘小兵"
+    login: "liuxiaobing"
+    gender: "m"
+    marriage_state: "married"
+    board_date: "2008-03-10"
+    dept_id: 2
+
+liuganghao:
+    id: 3
+    name: "刘罡昊"
+    login: "liuganghao"
+    board_date: "2010-11-18"
+    gender: "m"
+    dept_id: 3
+
+humanchao:
+    id: 4
+    name: "胡满超"
+    login: "humanchao"
+    board_date: "2010-08-16"
+    gender: "m"
+    marriage_state: "married"
+    dept_id: 4
+
+yangjie:
+    id: 5
+    name: "杨杰"
+    login: "yangjie"
+    board_date: "2010-03-28"
+    gender: "m"
+    marriage_state: "married"
+    dept_id: 5
+
+dengxiaoming:
+    id: 6
+    name: "邓晓明"
+    login: "dengxiaoming"
+    board_date: "2010-07-19"
+    gender: "f"
+    dept_id: 6
+
+cuijianbo:
+    name: "崔健博"
+    login: "cuijianbo"
+    board_date:	"2010-05-10"
+    gender: "m"
+    dept_id: 2
+
+lvxianpeng:
+    name: "吕现朋"
+    login: "lvxianpeng"
+    board_date: "2009-06-01"
+    gender: "m"
+    dept_id: 2
+
+xvliang:
+    name: "徐亮"
+    login: "xvliang"
+    board_date: "2009-05-04"
+    gender: "m"
+    dept_id: 2
+
+zhaozian:
+    name: "赵梓安"
+    login: "zhaozian"
+    board_date: "2009-12-03"
+    gender: "m"
+    dept_id: 2
+    
+wenjing:
+    name: "温晶"
+    login: "wenjing"
+    board_date: "2010-04-26"
+    gender: "f"
+    dept_id: 7
+
+fengsi:
+    name: "冯思"
+    login: "fengsi"
+    board_date: "2009-05-25"
+    gender: "f"
+    dept_id: 6
+
+tianjian:
+    name: "田健"
+    login: "tianjian"
+    board_date: "2009-11-11"
+    gender: "m"
+    dept_id: 4
+    
+lidawei:
+    name: "李大为"
+    login: "lidawei"
+    board_date: "2010-07-13"
+    gender: "m"
+    dept_id: 5
+
+gaoyan:    
+    name: "高燕"
+    login: "gaoyan"
+    board_date: ""
+    gender: "f"
+    marriage_state: "married"
+    dept_id: 7
+
+liuyu:
+    name: "刘瑜"
+    login: "liuyu"
+    board_date: "2010-12-04"
+    gender: "m"
+    dept_id: 2
+
+liuzhuang:
+    name: "刘壮"
+    login: "liuzhuang"
+    board_date: "2011-05-06"
+    gender: "m"
+    dept_id: 2
+
+zhangkui:
+    name: "张奎"
+    login: "zhangkui"
+    board_date: "2010-12-08"
+    gender: "m"
+    dept_id: 2
+
+zongdemin:
+    name: "宗德民"
+    login: "zongdemin"
+    board_date: "2010-12-20"
+    gender: "m"
+    dept_id: 2
+
+fengyuanli:
+    name: "冯元丽"
+    login: "fengyuanli"
+    board_date: "2011-01-04"
+    gender: "f"
+    dept_id: 6
+
+guona:
+    name: "郭娜"
+    login: "guona"
+    board_date: "2011-06-13"
+    gender: "f"
+    dept_id: 6
+
+lina:
+    name: "李娜"
+    login: "lina"
+    board_date: "2011-08-16"
+    gender: "f"
+    dept_id: 6
+
+wangyongle:
+    name: "王永乐"
+    login: "wangyongle"
+    board_date: "2011-09-22"
+    gender: "m"
+    dept_id: 6
+
+wanghaiguang:
+    name: "王海光"
+    login: "wanghaiguang"
+    board_date: "2011-08-08"
+    gender: "m"
+    dept_id: 4
+
+zhangliye:
+    name: "张立业"
+    login: "zhangliye"
+    board_date: "2010-11-15"
+    gender: "m"
+    dept_id: 4
+
+fanruiquan:
+    name: "范瑞泉"
+    login: "fanruiquan"
+    board_date: "2011-03-14"
+    gender: "m"
+    dept_id: 3
+
+zhangzhongsheng:
+    name: "张忠生"
+    login: "zhangzhongsheng"
+    board_date: "2011-02-21"
+    gender: "m"
+    dept_id: 3
+
+liutonghao:
+    name: "刘同豪"
+    login: "liutonghao"
+    board_date: "2010-12-01"
+    gender: "m"
+    marriage_state: "married"
+    dept_id: 5
+
+wangchangyun:
+    name: "王常云"
+    login: "wangchangyun"
+    board_date: "2011-01-04"
+    gender: "m"
+    marriage_state: "married"
+    dept_id: 5
+
+zhaopengxin:
+    name: "赵鹏欣"
+    login: "zhaopengxin"
+    board_date: "2011-09-26"
+    gender: "m"
+    dept_id: 2
+
+chensheng:
+    name: "陈胜"
+    login: "chensheng"
+    board_date: "2011-06-08"
+    gender: "m"
+    dept_id: 7
+
+wangwenqing:
+    name: "王文卿"
+    login: "wangwenqing"
+    board_date: "2011-06-01"
+    gender: "m"
+    dept_id: 7
+
+chenqianqian:
+    name: "陈倩倩"
+    login: "chenqianqian"
+    board_date: "2011-06-01"
+    gender: "m"
+    dept_id: 6
+
+panyiran:
+    name: "潘屹然"
+    login: "panyiran"
+    board_date: "2011-12-19"
+    gender: "m"
+    dept_id: 6
+
+wangyingqi:
+    name: "王颖祺"
+    login: "wangyingqi"
+    board_date: "2011-12-30"
+    gender: "m"
+    dept_id: 6
+
+yuanzhen:
+    name: "苑真"
+    login: "yuanzhen"
+    board_date: "2011-08-22"
+    gender: "m"
+    dept_id: 6
+
+zhangcan:
+    name: "张璨"
+    login: "zhangcan"
+    board_date: "2011-09-05"
+    gender: "m"
+    dept_id: 6
+
+zhouyuan:
+    name: "周媛"
+    login: "zhouyuan"
+    board_date: "2011-11-14"
+    gender: "m"
+    dept_id: 6
+
+muyan:
+    name: "穆岩"
+    login: "muyan"
+    board_date: ""
+    gender: "f"
+    dept_id: 4
+
+liwanpeng:
+    name: "李万鹏"
+    login: "liwanpeng"
+    board_date: "2011-09-22"
+    gender: "m"
+    dept_id: 4
+    
+gaogongge:
+    name: "高共革"
+    login: "gaogongge"
+    board_date: "2011-09-23"
+    gender: "m"
+    dept_id: 3
+
+wangchunlei:
+    name: "王春雷"
+    login: "wangchunlei"
+    board_date: "2011-07-25"
+    gender: "m"
+    dept_id: 3
+
+yinxiong:
+    name: "殷雄"
+    login: "yinxiong"
+    board_date: "2011-07-11"
+    gender: "m"
+    dept_id: 3
+
+zhongfeng:
+    name: "钟峰"
+    login: "zhongfeng"
+    board_date: "2011-12-28"
+    gender: "m"
+    dept_id: 3
+
+liyanchao:
+    name: "李艳超"
+    login: "liyanchao"
+    board_date: "2011-12-19"
+    gender: "m"
+    dept_id: 5

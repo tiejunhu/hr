@@ -1,0 +1,10 @@
+<%= render 'form' %>
+
+<% content_for :header do %>
+<script language="JavaScript">
+	$(document).ready(function() {
+		$('#employment_history_start_from').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#employment_history_end_at').datepicker({dateFormat: 'yy-mm-dd'});
+	});
+</script>
+<% end %>

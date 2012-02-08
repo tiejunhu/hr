@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'closure_tree'
 gem 'thin'
 gem 'authlogic', :git => 'git://github.com/binarylogic/authlogic.git'
+gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
