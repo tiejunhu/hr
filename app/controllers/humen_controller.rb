@@ -13,17 +13,26 @@ class HumenController < ApplicationController
   end
   
   def find_humen
-    dept_id = params[:dept_id]
-    if not dept_id or dept_id == -1.to_s
-      return Human.order(get_sort_directive)
-    else
+    dept_id = params[:dept_id] || "-1"
+    offset = params[:iDisplayStart] || 0
+    limit = params[:iDisplayLength] || -1
+    filter_cond = Settings.filters[params[:filter]] || {}
+
+    begin
       dept = Dept.find(dept_id)
-      sub_depts = dept.leaves << dept
-      return Human.where(:dept_id => sub_depts.collect{ |d| d.id } ).order(get_sort_directive)
+      dept_ids_cond = { :dept_id => (dept.leaves << dept).collect{ |d| d.id } }
+    rescue
+      dept_ids_cond = {}
     end
+    
+    all_cond = dept_ids_cond.merge(filter_cond)
+    
+    @total = Human.where(dept_ids_cond).count
+    @display_count = Human.where(all_cond).count
+    return Human.where(all_cond).order(sort_directive).limit(limit).offset(offset)
   end
   
-  def get_sort_directive
+  def sort_directive
     return "id" if params[:iSortingCols].to_i <= 0
     sort_col = params["mDataProp_#{params[:iSortCol_0]}"]
     sort_col = "dept_id" if sort_col == "dept_name"
@@ -34,8 +43,8 @@ class HumenController < ApplicationController
   def format_humen(humen)
     data = JqueryDatatableData.new
     data.sEcho = params[:sEcho]
-    data.iTotalRecords = humen.size
-    data.iTotalDisplayRecords = humen.size
+    data.iTotalRecords = @total
+    data.iTotalDisplayRecords = @display_count
     humen.each do |h|
       data.aaData.push({
         :id => h.id, 

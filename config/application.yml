@@ -8,10 +8,15 @@ defaults: &defaults
         - single 
         - divorced
     employment_status:
-        - 
+        - normal
         - on leave
+        - outsourced
         - fired
         - left
+    employment_not_here_status:
+        - outsourced
+        - fired
+        - left        
     employment_left_enum:
         - fired
         - left        
@@ -21,7 +26,25 @@ defaults: &defaults
         - demotion
         - fired
         - left
-        - rejoin      
+        - rejoin
+    filters:
+        none: 
+        manage:
+            employment_state:
+                - normal 
+                - on leave
+                - outsourced
+        amanage:
+            employment_state:
+                - normal
+                - on leave
+        work:
+            employment_state:
+                - normal
+        left:
+            employment_state:
+                - fired
+                - left
         
 development:
   <<: *defaults

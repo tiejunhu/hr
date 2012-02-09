@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208095247) do
+ActiveRecord::Schema.define(:version => 20120209052150) do
 
   create_table "dept_hierarchies", :id => false, :force => true do |t|
     t.integer "ancestor_id",   :null => false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20120208095247) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.integer  "title_id"
-    t.string   "employment_state"
+    t.string   "employment_state",  :default => "normal"
   end
 
   create_table "interview_histories", :force => true do |t|

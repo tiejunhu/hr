@@ -15,3 +15,43 @@
 	background-repeat:no-repeat;
 	background-position:right center;
 }
+
+.dataTables_paginate {
+	width: 44px;
+	* width: 50px;
+	float: right;
+	text-align: right;
+}
+
+/* Pagination nested */
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	width: 19px;
+	margin-left: 3px;
+	float: left;
+}
+
+.dataTables_info {
+	width: 60%;
+	float: left;
+}
+
+.paginate_disabled_previous {
+	background-image: url('images/back_disabled.jpg');
+}
+
+.paginate_enabled_previous {
+	background-image: url('images/back_enabled.jpg');
+}
+
+.paginate_disabled_next {
+	background-image: url('images/forward_disabled.jpg');
+}
+
+.paginate_enabled_next {
+	background-image: url('images/forward_enabled.jpg');
+}
+
+#employment_history_comment {
+	width: auto;
+}

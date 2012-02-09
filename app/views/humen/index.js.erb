@@ -1,15 +1,17 @@
 $(document).ready(function() {
+	var currentFilter = "amanage";
+	
     globalTable = $('#table').dataTable({
         "bProcessing": true,
         "bServerSide": true,
         "sAjaxSource": "<%= humen_path %>.json",
-        "bPaginate": false,
+        "bPaginate": true,
         "bLengthChange": false,
         "bFilter": false,
         "bSort": true,
         "bInfo": true,
         "bAutoWidth": false,
-		"sDom": '<"top"i>rt<"clear">',
+		"sDom": '<"row-fluid"i p>rt<"clear">',
 		"aoColumns": [
 		            { "mDataProp": "id" },
 		            { "mDataProp": "name", "bSortable": false },
@@ -19,7 +21,10 @@ $(document).ready(function() {
 		            { "mDataProp": "dept_name" },
 		            { "mDataProp": "board_date" },
 		            { "mDataProp": "employment_state" }
-		        ]
+		        ],
+		"fnServerParams": function (aoData) {
+  			aoData.push( { "name": "filter", "value": currentFilter } );
+		}
     });
 
     $('#new_human_link').click(function() {
@@ -39,6 +44,17 @@ $(document).ready(function() {
 		// update delete link
 		$("#delete_human_link").attr("href", "<%= humen_path %>/" + getTableSelectionKey());
 	});
+	
+	$('.filter-item').click(function(event) {
+		elem = event.target;
+		text = elem.innerHTML;
+		filter = $(elem).attr("filter");
+		if (currentFilter != filter) {
+			currentFilter = filter;
+			$("#filter-menu")[0].innerHTML = "Filter - " + text + " <span class=\"caret\"></span>";
+			globalTable.fnDraw();
+		}
+	})
 });
 
 function onTreeNodeActivate(node) {

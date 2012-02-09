@@ -101,6 +101,12 @@
 			        <%= f.text_field :id_card_no %>
 						</div>
 		      </div>
+		      <div class="control-group">
+		        <%= f.label :employment_state, :class => "control-label" %>
+						<div class="controls">
+			        <%= f.select :employment_state, Settings.employment_status %>
+						</div>
+		      </div>
 		    </div>
 		  </div>
 		</div>

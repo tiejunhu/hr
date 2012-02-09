@@ -241,8 +241,9 @@ chenqianqian:
     name: "陈倩倩"
     login: "chenqianqian"
     board_date: "2011-06-01"
-    gender: "m"
+    gender: "f"
     dept_id: 6
+    employment_state: "outsourced"
 
 panyiran:
     name: "潘屹然"
