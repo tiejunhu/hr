@@ -29,7 +29,7 @@ class HumenController < ApplicationController
     
     @total = Human.where(dept_ids_cond).count
     @display_count = Human.where(all_cond).count
-    return Human.where(all_cond).order(sort_directive).limit(limit).offset(offset)
+    Human.where(all_cond).order(sort_directive).limit(limit).offset(offset)
   end
   
   def sort_directive
@@ -37,27 +37,29 @@ class HumenController < ApplicationController
     sort_col = params["mDataProp_#{params[:iSortCol_0]}"]
     sort_col = "dept_id" if sort_col == "dept_name"
     sort_dir = params[:sSortDir_0]
-    return "#{sort_col} #{sort_dir}"
+    "#{sort_col} #{sort_dir}"
+  end
+  
+  def manager_icon(h)
+    h.manager? ? " <i class=\"icon-eye-open\"></i>" : ""
   end
   
   def format_humen(humen)
-    data = JqueryDatatableData.new
-    data.sEcho = params[:sEcho]
-    data.iTotalRecords = @total
-    data.iTotalDisplayRecords = @display_count
-    humen.each do |h|
-      data.aaData.push({
-        :id => h.id, 
-        :name => "<a href=\"#{human_path(h)}\">#{h.name}</a>", 
-        :login => h.login, 
-        :gender => h.gender, 
-        :marriage_state => h.marriage_state, 
-        :dept_name => ((h.dept == nil) ? "" : h.dept.name), 
+    {
+      :sEcho => params[:sEcho],
+      :iTotalRecords => @total,
+      :iTotalDisplayRecords => @display_count,
+      :aaData => humen.collect{ |h| {
+        :id => h.id,
+        :name => "<a href=\"#{human_path(h)}\">#{h.name}</a>#{manager_icon(h)}",
+        :login => h.login,
+        :gender => h.gender,
+        :marriage_state => h.marriage_state,
+        :dept_name => ((h.dept == nil) ? "" : h.dept.name),
         :board_date => h.board_date,
         :employment_state => h.employment_state
-        })
-    end
-    data
+      }}
+    }
   end
 
   # GET /humen/1
@@ -101,7 +103,11 @@ class HumenController < ApplicationController
   # PUT /humen/1
   def update
     @human = Human.find(params[:id])
+    
     @human.updating_password = params[:human][:password].length > 0
+    
+    @human.set_manager if params[:human][:manager] == "1"
+    params[:human].delete(:manager)
 
     respond_to do |format|
       if @human.update_attributes(params[:human])

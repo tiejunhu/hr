@@ -1,12 +1,13 @@
 <div class="btn-toolbar">
-	<div class="btn-group">
-	<%= link_to 'New', "#", :id => "new_dept_link", :class => "btn" %> 
-	<%= link_to 'Edit', "#", :id => "edit_dept_link", :class => "btn"  %> 
-	<%= link_to 'Del', "#", :id => "delete_dept_link", :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "btn" %>
+  <div class="btn-group">
+    <%= link_to 'New', "#", :id => "new_dept_link", :class => "btn" %>
+    <%= link_to 'Edit', "#", :id => "edit_dept_link", :class => "btn" %>
+    <%= link_to 'Del', "#", :id => "delete_dept_link", :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "btn" %>
+    <%= link_to 'Save', "#", :id => "save_org_link", :class => "btn" %>
+  </div>
 </div>
+<div id="tree">
 </div>
-<div id="tree"></div>
-
 <% content_for :header do %>
-	<%= javascript_include_tag depts_path %>
+  <%= javascript_include_tag depts_path %>
 <% end %>

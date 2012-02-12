@@ -11,7 +11,7 @@
 	<div class="span6">
 		<div class="btn-toolbar pull-right">
 		<div class="btn-group">
-      <a id="filter-menu" class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">Filter - Actually Managing <span class="caret"></span></a>
+      <a id="filter-menu" class="btn dropdown-toggle" data-toggle="dropdown" href="#">Filter - Actually Managing <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a class="filter-item" filter="none" href="#">None</a></li>
         <li><a class="filter-item" filter="manage" href="#">Managing</a></li>
@@ -24,7 +24,7 @@
 	</div>
 </div>
 <div class="row-fluid">
-<table class="table table-bordered" id="table">
+<table class="table table-bordered" id="humen-table">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -41,6 +41,7 @@
 	</tbody>
 </table>
 </div>
+
 <% content_for :header do %>
 	<%= javascript_include_tag humen_path %>
 <% end %>

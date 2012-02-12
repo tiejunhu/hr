@@ -1,31 +1,37 @@
-$(function() {
-    $("#tree").dynatree({
-        onActivate: function(node) {
-			$("#delete_dept_link").attr("href", "<%= depts_path %>/" + node.data.key);
-			if (typeof onTreeNodeActivate == "function") {
-				onTreeNodeActivate(node);
-			}
-        },
-        onPostInit: function() {
-            $("#tree").dynatree("getRoot").visit(function(node) {
-                node.expand(true);
-            });
-        },
-        persist: true,
-        clickFolderMode: 1,
-        initAjax: {
-            url: "<%= depts_path %>.json"
-        },
-    });
+$(document).ready(function () {
+  initTree();
+
+  $('#new_dept_link').click(function () {
+    openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 450, "New Dept");
+  });
+
+  $('#edit_dept_link').click(function () {
+    openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 450, "Edit Dept");
+  });
+
+  $('#save_org_link').click(function () {
+    openDialog("<%= new_org_chart_path %>", 450, "Save Org Chart");
+  });
 });
 
-$(document).ready(function() {
-    $('#new_dept_link').click(function() {
-		openDialog("<%= new_dept_path %>?parent_id=" + getTreeSelectionKey(), 450, "New Dept");
-    });
-
-    $('#edit_dept_link').click(function() {
-		openDialog("<%= depts_path %>/" + getTreeSelectionKey() + "/edit", 450, "Edit Dept");
-    });
-});
+function initTree() {
+  $("#tree").dynatree({
+    onActivate:function (node) {
+      $("#delete_dept_link").attr("href", "<%= depts_path %>/" + node.data.key);
+      if (typeof onTreeNodeActivate == "function") {
+        onTreeNodeActivate(node);
+      }
+    },
+    onPostInit:function () {
+      $("#tree").dynatree("getRoot").visit(function (node) {
+        node.expand(true);
+      });
+    },
+    persist:true,
+    clickFolderMode:1,
+    initAjax:{
+      url:"<%= depts_path %>.json"
+    }
+  });
+}
 

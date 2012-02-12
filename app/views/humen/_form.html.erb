@@ -57,6 +57,12 @@
 			        <%= f.select :dept_id, all_depts %>
 						</div>
 		      </div>
+		      <div class="control-group">
+		        <%= f.label :is_manager, :class => "control-label" %>
+						<div class="controls">
+			        <%= check_box "human", "manager?" %>
+						</div>
+		      </div>
 		    </div>
 		    <div class="span6">
 		      <div class="control-group">

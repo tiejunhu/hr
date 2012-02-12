@@ -2,7 +2,7 @@
 
 module DeptsHelper
   def all_depts
-    depts = [["All Depts", -1]]
+    depts = [[Settings.dept_root_name, -1]]
     level = 1
     Dept.roots.each do |d|
       sub_depts(depts, d, level)

@@ -1,4 +1,5 @@
 defaults: &defaults
+    dept_root_name: 研发中心
     genders:
         - m
         - f

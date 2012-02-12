@@ -8,11 +8,9 @@ ul.dynatree-container
 	white-space: nowrap;
 	padding: 3px;
 	margin: 0; /* issue 201 */
-
 	background-color: white;
-	border: 1px dotted gray;
-
 	overflow: auto;
+	height: 100%; /* issue 263 */
 }
 
 ul.dynatree-container ul
@@ -64,12 +62,26 @@ ul.dynatree-no-connector > li
 span.dynatree-empty,
 span.dynatree-vline,
 span.dynatree-connector,
-span.dynatree-expander,
 span.dynatree-icon,
 span.dynatree-checkbox,
 span.dynatree-radio,
 span.dynatree-drag-helper-img,
 #dynatree-drop-marker
+{
+	width: 16px;
+	height: 24px;
+	vertical-align: middle;
+/*	display: -moz-inline-box; /* @ FF 1+2 removed for issue 221*/
+/*	-moz-box-align: start; /* issue 221 */
+	display: inline-block; /* Required to make a span sizeable */
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-position: left;
+	background-image: url("icons.gif");
+	background-position: 0 0;
+}
+
+span.dynatree-expander
 {
 	width: 16px;
 	height: 16px;
@@ -82,6 +94,7 @@ span.dynatree-drag-helper-img,
 	background-image: url("icons.gif");
 	background-position: 0 0;
 }
+
 
 /** Used by 'icon' node option: */
 ul.dynatree-container img
@@ -242,7 +255,9 @@ span.dynatree-radio:hover
 span.dynatree-icon /* Default icon */
 {
 	margin-left: 3px;
+	width: 24px;
 	background-position: 0px 0px;
+	background-image: url("group.png");
 }
 
 .dynatree-has-children span.dynatree-icon /* Default icon */
@@ -252,13 +267,13 @@ span.dynatree-icon /* Default icon */
 
 .dynatree-ico-cf span.dynatree-icon  /* Collapsed Folder */
 {
-	background-position: 0px -16px;
+/*	background-position: 0px -16px;*/
 }
 
 .dynatree-ico-ef span.dynatree-icon  /* Expanded Folder */
 {
-	background-position: -64px -16px;
-}
+/*	background-position: -64px -16px;*/
+}}
 
 /* Status node icons */
 
@@ -284,6 +299,7 @@ span.dynatree-node
 /*	display: -moz-inline-box; /* issue 133, 165, 172, 192. removed for issue 221 */
 /*	-moz-box-align: start; /* issue 221 */
 /*  display: inline-block; /* Required to make a span sizeable */
+	line-height: 24px;
 }
 
 

@@ -1,112 +1,104 @@
 admin:
   id: 1
-  name: "Admin"
+  name: "胡铁军"
   login: "admin"
   crypted_password: "14b3c7d2b4974ef47bf5c02a8867466e1762b0f6aa5587e959f4e6953fcdd10d779eda8061fbfc8ec3076e94dbed8847dccbec2e04a3b791d9cc2153fd779656"
   password_salt: "zWErojlJrMwDLUoeTdN"
   gender: "m"
-  marriage_state: "unknown"
-  created_at: "2012-02-03 02:29:03"
-  updated_at: "2012-02-03 02:29:03"
   
 liuxiaobing:
-    id: 2
     name: "刘小兵"
     login: "liuxiaobing"
     gender: "m"
     marriage_state: "married"
     board_date: "2008-03-10"
-    dept_id: 2
+    dept: domas
 
 liuganghao:
-    id: 3
     name: "刘罡昊"
     login: "liuganghao"
     board_date: "2010-11-18"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 humanchao:
-    id: 4
     name: "胡满超"
     login: "humanchao"
     board_date: "2010-08-16"
     gender: "m"
     marriage_state: "married"
-    dept_id: 4
+    dept: school
 
 yangjie:
-    id: 5
     name: "杨杰"
     login: "yangjie"
     board_date: "2010-03-28"
     gender: "m"
     marriage_state: "married"
-    dept_id: 5
+    dept: base
 
 dengxiaoming:
-    id: 6
     name: "邓晓明"
     login: "dengxiaoming"
     board_date: "2010-07-19"
     gender: "f"
-    dept_id: 6
+    dept: test
 
 cuijianbo:
     name: "崔健博"
     login: "cuijianbo"
     board_date:	"2010-05-10"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 lvxianpeng:
     name: "吕现朋"
     login: "lvxianpeng"
     board_date: "2009-06-01"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 xvliang:
     name: "徐亮"
     login: "xvliang"
     board_date: "2009-05-04"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 zhaozian:
     name: "赵梓安"
     login: "zhaozian"
     board_date: "2009-12-03"
     gender: "m"
-    dept_id: 2
+    dept: domas
     
 wenjing:
     name: "温晶"
     login: "wenjing"
     board_date: "2010-04-26"
     gender: "f"
-    dept_id: 7
+    dept: product
 
 fengsi:
     name: "冯思"
     login: "fengsi"
     board_date: "2009-05-25"
     gender: "f"
-    dept_id: 6
+    dept: test
 
 tianjian:
     name: "田健"
     login: "tianjian"
     board_date: "2009-11-11"
     gender: "m"
-    dept_id: 4
+    dept: school
     
 lidawei:
     name: "李大为"
     login: "lidawei"
     board_date: "2010-07-13"
     gender: "m"
-    dept_id: 5
+    dept: base
 
 gaoyan:    
     name: "高燕"
@@ -114,91 +106,93 @@ gaoyan:
     board_date: ""
     gender: "f"
     marriage_state: "married"
-    dept_id: 7
+    dept: product
 
 liuyu:
     name: "刘瑜"
     login: "liuyu"
     board_date: "2010-12-04"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 liuzhuang:
     name: "刘壮"
     login: "liuzhuang"
     board_date: "2011-05-06"
     gender: "m"
-    dept_id: 2
+    dept: domas
+    employment_state: "left"
 
 zhangkui:
     name: "张奎"
     login: "zhangkui"
     board_date: "2010-12-08"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 zongdemin:
     name: "宗德民"
     login: "zongdemin"
     board_date: "2010-12-20"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 fengyuanli:
     name: "冯元丽"
     login: "fengyuanli"
     board_date: "2011-01-04"
     gender: "f"
-    dept_id: 6
+    dept: test
 
 guona:
     name: "郭娜"
     login: "guona"
     board_date: "2011-06-13"
     gender: "f"
-    dept_id: 6
+    dept: test
 
 lina:
     name: "李娜"
     login: "lina"
     board_date: "2011-08-16"
     gender: "f"
-    dept_id: 6
+    dept: test
+    employment_state: "outsourced"
 
 wangyongle:
     name: "王永乐"
     login: "wangyongle"
     board_date: "2011-09-22"
     gender: "m"
-    dept_id: 6
+    dept: test
 
 wanghaiguang:
     name: "王海光"
     login: "wanghaiguang"
     board_date: "2011-08-08"
     gender: "m"
-    dept_id: 4
+    dept: school
 
 zhangliye:
     name: "张立业"
     login: "zhangliye"
     board_date: "2010-11-15"
     gender: "m"
-    dept_id: 4
+    dept: school
 
 fanruiquan:
     name: "范瑞泉"
     login: "fanruiquan"
     board_date: "2011-03-14"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 zhangzhongsheng:
     name: "张忠生"
     login: "zhangzhongsheng"
     board_date: "2011-02-21"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 liutonghao:
     name: "刘同豪"
@@ -206,7 +200,7 @@ liutonghao:
     board_date: "2010-12-01"
     gender: "m"
     marriage_state: "married"
-    dept_id: 5
+    dept: base
 
 wangchangyun:
     name: "王常云"
@@ -214,35 +208,35 @@ wangchangyun:
     board_date: "2011-01-04"
     gender: "m"
     marriage_state: "married"
-    dept_id: 5
+    dept: base
 
 zhaopengxin:
     name: "赵鹏欣"
     login: "zhaopengxin"
     board_date: "2011-09-26"
     gender: "m"
-    dept_id: 2
+    dept: domas
 
 chensheng:
     name: "陈胜"
     login: "chensheng"
     board_date: "2011-06-08"
     gender: "m"
-    dept_id: 7
+    dept: product
 
 wangwenqing:
     name: "王文卿"
     login: "wangwenqing"
     board_date: "2011-06-01"
     gender: "m"
-    dept_id: 7
+    dept: product
 
 chenqianqian:
     name: "陈倩倩"
     login: "chenqianqian"
     board_date: "2011-06-01"
     gender: "f"
-    dept_id: 6
+    dept: test
     employment_state: "outsourced"
 
 panyiran:
@@ -250,81 +244,81 @@ panyiran:
     login: "panyiran"
     board_date: "2011-12-19"
     gender: "m"
-    dept_id: 6
+    dept: test
 
 wangyingqi:
     name: "王颖祺"
     login: "wangyingqi"
     board_date: "2011-12-30"
-    gender: "m"
-    dept_id: 6
+    gender: "f"
+    dept: test
 
 yuanzhen:
     name: "苑真"
     login: "yuanzhen"
     board_date: "2011-08-22"
-    gender: "m"
-    dept_id: 6
+    gender: "f"
+    dept: test
 
 zhangcan:
     name: "张璨"
     login: "zhangcan"
     board_date: "2011-09-05"
-    gender: "m"
-    dept_id: 6
+    gender: "f"
+    dept: test
 
 zhouyuan:
     name: "周媛"
     login: "zhouyuan"
     board_date: "2011-11-14"
-    gender: "m"
-    dept_id: 6
+    gender: "f"
+    dept: test
 
 muyan:
     name: "穆岩"
     login: "muyan"
     board_date: ""
     gender: "f"
-    dept_id: 4
+    dept: school
 
 liwanpeng:
     name: "李万鹏"
     login: "liwanpeng"
     board_date: "2011-09-22"
     gender: "m"
-    dept_id: 4
+    dept: school
     
 gaogongge:
     name: "高共革"
     login: "gaogongge"
     board_date: "2011-09-23"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 wangchunlei:
     name: "王春雷"
     login: "wangchunlei"
     board_date: "2011-07-25"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 yinxiong:
     name: "殷雄"
     login: "yinxiong"
     board_date: "2011-07-11"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 zhongfeng:
     name: "钟峰"
     login: "zhongfeng"
     board_date: "2011-12-28"
     gender: "m"
-    dept_id: 3
+    dept: sdomas
 
 liyanchao:
     name: "李艳超"
     login: "liyanchao"
     board_date: "2011-12-19"
     gender: "m"
-    dept_id: 5
+    dept: base

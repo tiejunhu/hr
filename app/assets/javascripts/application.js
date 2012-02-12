@@ -9,8 +9,6 @@
 //= require_tree .
 
 var globalDialog;
-var globalTree;
-var globalTable;
 
 $(document).ready(function() {
 	resizeIFrame();
@@ -35,7 +33,7 @@ function activeNavItem() {
 	}
 	for (i = 0; i < items.length; i++) {
 		item = items[i];
-		if (path.indexOf("/" + item.textContent.toLowerCase()) >= 0) {
+		if (path.indexOf($(item.firstChild).attr("href").toLowerCase()) >= 0) {
 			$(item).addClass("active");
 			return;
 		}
@@ -86,9 +84,8 @@ function getTree() {
 	return $("#tree").dynatree("getTree");
 }
 
-function getTable() {
-	// return $("#table").dataTable();
-	return globalTable;
+function getHumenTable() {
+	return $("#humen-table").dataTable();
 }
 
 function getTreeSelectionKey() {
@@ -98,15 +95,4 @@ function getTreeSelectionKey() {
 		key = node.data.key;
 	}
 	return key;
-}
-
-function getTableSelectionKey() {
-    var aTrs = getTable().fnGetNodes();
-     
-    for ( var i=0 ; i<aTrs.length ; i++ ) {
-        if ( $(aTrs[i]).hasClass('row_selected') ) {
-			return aTrs[i].firstChild.innerHTML;
-        }
-    }
-    return -1;	
 }

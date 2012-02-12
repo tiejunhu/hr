@@ -1,35 +1,35 @@
-ta:
+junior_eng:
     title: "见习工程师"
     band: "A"
 
-tb:
+eng:
     title: "工程师"
     band: "B"
         
-tc1:
+middle_eng:
     title: "中级工程师"
     band: "C"
         
-tc2:
+pm:
     title: "研发项目经理"
     band: "C"
         
-td1:
+senior_eng:
     title: "高级工程师"
     band: "D"
         
-td2:
+test_mgr:
     title: "测试经理"
     band: "D"
         
-td3:
+product_mgr:
     title: "产品经理"
     band: "D"
         
-te1:
+staff_eng:
     title: "资深工程师"
     band: "E"
         
-te2:
+senior_product_mgr:
     title: "高级产品经理"
     band: "E"

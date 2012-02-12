@@ -1,33 +1,36 @@
 rd:
-    id: 1
     name: "研究院"
+    manager: admin
 
 domas:
-    id: 2
     name: "企业输出产品部"
-    parent_id: 1
+    parent: rd
+    manager: liuxiaobing
 
 sdomas:
-    id: 3
     name: "安全输出产品部"
-    parent_id: 1
+    parent: rd
+    manager: liuganghao
 
 school:
-    id: 4
     name: "校园产品部"
-    parent_id: 1
+    parent: rd
+    manager: humanchao
 
 base:
-    id: 5
     name: "基础研发部"
-    parent_id: 1
+    parent: rd
+    manager: yangjie
 
 test:
-    id: 6
     name: "测试部"
-    parent_id: 1
+    parent: rd
+    manager: dengxiaoming
 
 product:
-    id: 7
     name: "产品管理部"
-    parent_id: 1
+    parent: rd
+    
+cm:
+    name: "内容管理事业部"
+

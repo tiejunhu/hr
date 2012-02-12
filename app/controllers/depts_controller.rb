@@ -7,20 +7,27 @@ class DeptsController < ApplicationController
   def index
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: convert_to_jstreenodes(Dept.roots, nil) }
+      format.json { render json: convert_to_tree_nodes(Dept.roots, nil) }
       format.js # index.js.erb
     end
   end
 
-  def convert_to_jstreenodes(depts, parent)
-    parent = JsTreeNode.new if not parent
+  def new_tree_node(title, key, isFolder)
+    {
+      :title => title,
+      :key => key,
+      :isFolder => isFolder,
+      :children => []
+    }
+  end
+
+  def convert_to_tree_nodes(depts, parent)
+    parent = new_tree_node(Settings.dept_root_name, -1, true) if not parent
     depts.each do |d|
-      node = JsTreeNode.new
-      node.title = d.name
-      node.key = d.id
-      convert_to_jstreenodes(d.children, node)
-      node.isFolder = (node.children.size > 0)
-      parent.children << node
+      node = new_tree_node(d.name, d.id, false)
+      convert_to_tree_nodes(d.children, node) unless d.leaf?
+      parent[:children].push(node)
+      parent[:isFolder] = (parent[:children].size > 0)
     end
     parent
   end

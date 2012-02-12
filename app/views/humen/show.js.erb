@@ -1,3 +1,5 @@
+var employmentHistoriesTable;
+
 $(document).ready(function() {
 	$("#current_form :input").attr("disabled", true);
 	
@@ -13,7 +15,7 @@ $(document).ready(function() {
     });
 
 	$("#employment_histories_table tbody").click(function(event) {
-		$(getEmploymentHistoriesTable().fnSettings().aoData).each(function (){
+		$(employmentHistoriesTable.fnSettings().aoData).each(function (){
 			$(this.nTr).removeClass('row_selected');
 		});
 		$(event.target.parentNode).addClass('row_selected');
@@ -25,7 +27,7 @@ $(document).ready(function() {
 
 function initEmploymentHistoriesTable()
 {
-	$('#employment_histories_table').dataTable({
+	employmentHistoriesTable = $('#employment_histories_table').dataTable({
         "bProcessing": true,
         "bServerSide": true,
         "sAjaxSource": "<%= employment_histories_path %>.json?human_id=<%= @human_id %>",
@@ -37,7 +39,7 @@ function initEmploymentHistoriesTable()
         "bAutoWidth": false,
 		"sDom": '<"top"i>rt<"clear">',
 		"aoColumns": [
-		            { "mDataProp": "id" },
+		            { "mDataProp": "id", "bVisible": false },
 		            { "mDataProp": "level" },
 		            { "mDataProp": "title" },
 		            { "mDataProp": "start_from" },
@@ -54,11 +56,13 @@ function getEmploymentHistoriesTable() {
 }
 
 function getEmploymentHistoriesTableSelectionKey() {
-    var aTrs = getEmploymentHistoriesTable().fnGetNodes();
+    var aTrs = employmentHistoriesTable.fnGetNodes();
      
     for ( var i=0 ; i<aTrs.length ; i++ ) {
         if ( $(aTrs[i]).hasClass('row_selected') ) {
-			return aTrs[i].firstChild.innerHTML;
+			var aPos = employmentHistoriesTable.fnGetPosition(aTrs[i]);
+			var data = employmentHistoriesTable.fnGetData(aPos);
+			return data.id;
         }
     }
     return -1;	

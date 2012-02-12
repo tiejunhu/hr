@@ -1,4 +1,7 @@
 Hr::Application.routes.draw do
+  resources :org_charts
+
+  resources :org_models
   resources :depts
   resources :humen
   resources :levels

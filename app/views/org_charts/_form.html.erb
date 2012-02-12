@@ -1,0 +1,26 @@
+<%= form_for(@org_chart, :html => {:class => "form-horizontal", :id => "current_form"}) do |f| %>
+  <% if @org_chart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@org_chart.errors.count, "error") %> prohibited this org_chart from being saved:</h2>
+      <ul>
+        <% @org_chart.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :effective_date, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :effective_date %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

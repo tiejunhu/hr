@@ -1,0 +1,10 @@
+<% content_for :header do %>
+	<script language="JavaScript">
+		$(document).ready(function() {
+			if (top.$("#org-chart-history-menu").length > 0) {
+	    	top.$("#org-chart-history-menu")[0].innerHTML = "<%= @org_chart.effective_date %>  - <%= @org_chart.name %> <span class=\"caret\"></span>";;
+			}
+			top.closeDialog();
+		});
+	</script>
+<% end %>

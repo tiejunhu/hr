@@ -19,4 +19,12 @@ class Human < ActiveRecord::Base
   def should_validate?
     updating_password or new_record?
   end
+  
+  def manager?
+    id == dept.manager_id
+  end
+  
+  def set_manager
+    dept.update_attributes(:manager_id => id)
+  end
 end

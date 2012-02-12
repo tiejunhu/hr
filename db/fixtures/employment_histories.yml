@@ -1,0 +1,185 @@
+liuxiaobing_eh1:
+    human: liuxiaobing
+    level: E1
+    title: senior_product_mgr
+    start_from: 2011-1-1
+    monthly_pay: 12000
+    reason: promotion
+
+liuxiaobing_eh2:
+    human: liuxiaobing
+    level: E2
+    title: senior_product_mgr
+    start_from: 2011-10-1
+    monthly_pay: 15000
+    reason: promotion
+
+liuganghao_eh1:
+    human: liuganghao
+    level: E1
+    title: product_mgr
+    start_from: 2010-11-18
+    monthly_pay: 12000
+    reason: hire as
+
+liuganghao_eh2:
+    human: liuganghao
+    level: E2
+    title: senior_product_mgr
+    start_from: 2012-1-1
+    monthly_pay: 15000
+    reason: promotion
+
+humanchao_eh1:
+    human: humanchao
+    level: E2
+    title: senior_product_mgr
+    start_from: 2010-08-16
+    monthly_pay: 15000
+    reason: hire as
+    
+humanchao_eh2:
+    human: humanchao
+    level: E3
+    title: senior_product_mgr
+    start_from: 2012-1-1
+    monthly_pay: 16500
+    reason: promotion
+
+yangjie_eh1:
+    human: yangjie
+    level: D1
+    title: product_mgr
+    start_from: 2010-03-28
+    monthly_pay: 10000
+    reason: hire as
+
+yangjie_eh2:
+    human: yangjie
+    level: D4
+    title: product_mgr
+    start_from: 2012-1-1
+    monthly_pay: 15000
+    reason: promotion
+
+dengxiaoming_eh1:
+    human: dengxiaoming
+    level: C3
+    title: test_mgr
+    start_from: 2010-07-19
+    monthly_pay: 7500
+    reason: hire as
+
+dengxiaoming_eh2:
+    human: dengxiaoming
+    level: D1
+    title: test_mgr
+    start_from: 2012-1-1
+    monthly_pay: 10000
+    reason: promotion
+
+cuijianbo_eh1:
+    human: cuijianbo
+    level: C3
+    title: middle_eng
+    start_from: 2010-05-10
+    monthly_pay: 8000
+    reason: hire as
+
+cuijianbo_eh2:
+    human: cuijianbo
+    level: C5
+    title: middle_eng
+    start_from: 2011-1-1
+    monthly_pay: 10000
+    reason: promotion
+
+cuijianbo_eh3:
+    human: cuijianbo
+    level: D2
+    title: senior_eng
+    start_from: 2012-1-1
+    monthly_pay: 12000
+    reason: promotion
+# 
+# lvxianpeng:
+#     human: 
+#     level: 
+#     title: 
+#     start_from: 
+#     monthly_pay: 
+#     reason: 
+# 
+# xvliang:
+# 
+# zhaozian:
+#     
+# wenjing:
+# 
+# fengsi:
+# 
+# tianjian:
+#     
+# lidawei:
+# 
+# gaoyan:    
+# 
+# liuyu:
+# 
+# liuzhuang:
+# 
+# zhangkui:
+# 
+# zongdemin:
+# 
+# fengyuanli:
+# 
+# guona:
+# 
+# lina:
+# 
+# wangyongle:
+# 
+# wanghaiguang:
+# 
+# zhangliye:
+# 
+# fanruiquan:
+# 
+# zhangzhongsheng:
+# 
+# liutonghao:
+# 
+# wangchangyun:
+# 
+# zhaopengxin:
+# 
+# chensheng:
+# 
+# wangwenqing:
+# 
+# chenqianqian:
+# 
+# panyiran:
+# 
+# wangyingqi:
+# 
+# yuanzhen:
+# 
+# zhangcan:
+# 
+# zhouyuan:
+# 
+# muyan:
+# 
+# liwanpeng:
+#     
+# gaogongge:
+# 
+# wangchunlei:
+# 
+# yinxiong:
+# 
+# zhongfeng:
+# 
+# liyanchao:
