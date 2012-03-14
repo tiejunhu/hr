@@ -89,10 +89,16 @@ class HumenController < ApplicationController
 
   # POST /humen
   def create
+    # save this param and delete from hash, or there will be error
+    is_manager = params[:human][:manager] == "1"
+    params[:human].delete(:manager)
+
     @human = Human.new(params[:human])
 
     respond_to do |format|
       if @human.save
+        @human.set_manager if is_manager
+        @human.log_creation
         format.html { render action: "close" }
       else
         format.html { render action: "new" }
@@ -105,7 +111,8 @@ class HumenController < ApplicationController
     @human = Human.find(params[:id])
     
     @human.updating_password = params[:human][:password].length > 0
-    
+
+    # set manager and delete this param from hash, or there will be error
     @human.set_manager if params[:human][:manager] == "1"
     params[:human].delete(:manager)
 

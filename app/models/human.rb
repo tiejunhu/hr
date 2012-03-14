@@ -21,10 +21,22 @@ class Human < ActiveRecord::Base
   end
   
   def manager?
+    return false if dept == nil
     id == dept.manager_id
   end
   
   def set_manager
+    return if dept == nil
     dept.update_attributes(:manager_id => id)
   end
+
+  def log_creation
+    return if id == nil
+    h = History.new
+    h.human_id = id
+    h.category = 'profile'
+    h.log = "created"
+    h.save
+  end
+
 end

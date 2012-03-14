@@ -96,3 +96,21 @@ function getTreeSelectionKey() {
 	}
 	return key;
 }
+
+function initDatePicker(elem)
+{
+		elem.DatePicker({
+			format:'Y-m-d',
+			date: elem.val() || new Date(),
+			current: elem.val() || new Date(),
+			starts: 1,
+			position: 'right',
+			onBeforeShow: function(){
+				elem.DatePickerSetDate(elem.val() || new Date(), true);
+			},
+			onChange: function(formated, dates){
+				elem.val(formated);
+				elem.DatePickerHide();
+			}
+		});
+}

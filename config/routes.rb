@@ -1,13 +1,12 @@
 Hr::Application.routes.draw do
   resources :org_charts
-
-  resources :org_models
   resources :depts
   resources :humen
   resources :levels
   resources :titles
   resources :reviews
   resources :employment_histories
+  resources :humen_sync
 
   # match all close actions
   match ':controller/:action', :action => /close/

@@ -9,12 +9,11 @@ class EmploymentHistoriesController < ApplicationController
   
   def format_histories
     histories = EmploymentHistory.where(:human_id => params[:human_id]).order("start_from desc")
-    data = JqueryDatatableData.new
-    data.sEcho = params[:sEcho]
-    data.iTotalRecords = histories.size
-    data.iTotalDisplayRecords = histories.size
-    histories.each do |h|
-      data.aaData.push({
+    {
+      :sEcho => params[:sEcho],
+      :iTotalRecords => histories.size,
+      :iTotalDisplayRecords => histories.size,
+      :aaData => histories.collect{ |h| {
         :id => h.id, 
         :level => h.level.level, 
         :title => h.title.title, 
@@ -23,9 +22,8 @@ class EmploymentHistoriesController < ApplicationController
         :base_rate => h.base_rate,
         :pay_month_per_year => h.pay_month_per_year,
         :reason => h.reason
-        })
-    end
-    data
+      }}
+    }
   end
 
   def show
